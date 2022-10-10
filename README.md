@@ -150,14 +150,15 @@ The resulting working directory is very akin to a typical coding language, with 
 
 ### Further Work
 
-1. Accept other config file types besides YAML, like JSON or TOML
+1. Is there a way to automatically attach this build script system for Fountain projects, without manually copy-pasting `build.py` and `.vscode/tasks.json` every time?
+2. Accept other config file types besides YAML, like JSON or TOML
     - Perhaps by default, detect any config filetype in the root working directory, regardless of name, so you could implicitly use `settings.json`
-2. Default configuration in the absence of a config file
-3. Create multiple output files according to groups of source files, e.g. an output file for each Act, like `Act1.fountain` if the source files are organized like `source/Act1/hook.fountain` and`source/Act1/inciting.fountain`.
+3. Default configuration in the absence of a config file
+4. Create multiple output files according to groups of source files, e.g. an output file for each Act, like `Act1.fountain` if the source files are organized like `source/Act1/hook.fountain` and`source/Act1/inciting.fountain`.
     - Better configuration key-value structure for explicitly defined groups of source files (probably using lists of lists, but the challenge is intuitively differentiating actual files from group names)
-4. Automatic Screenplay to PDF generation or whatever other BetterFountain command, according to post-build tasks specified in the configuration file.
-5. Section/Act headers/comments, configured in the config file(?).
-6. Perhaps re-code it in a faster language, like Go. But I don't know Go.
-7. Only scan for plain text formats in the source directory, in case people use other Markdown-based tools with a working directory at the source directory.
+5. Automatic Screenplay to PDF generation or whatever other BetterFountain command, according to post-build tasks specified in the configuration file.
+6. Section/Act headers/comments, configured in the config file(?).
+7. Perhaps re-code it in a faster language, like Go. But I don't know Go.
+8. Only scan for plain text formats in the source directory, in case people use other Markdown-based tools with a working directory at the source directory.
 
 Please open a pull request or an issue if you would like to make improvements!
