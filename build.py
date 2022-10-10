@@ -44,14 +44,14 @@ output_path = load_config(config, "output_path")
 
 # --------------------------- Read the sections dir ------------------------- #
 
-fountain_files = {}
+source_files = {}
 
 for root, dirs, files in os.walk(sections_dir):
 
     # rel_dir = os.path.relpath(root, sections_dir)
 
     for file in files:
-        fountain_files.update({
+        source_files.update({
             strip_ext(file): os.path.join(root, file)
         })
         # fountain_filenames.append(strip_ext(file))
@@ -68,17 +68,17 @@ for section in structure_list:
         continue
 
     # If section exists
-    if section in fountain_files:
+    if section in source_files:
 
         # Append section to sections
-        with open(fountain_files[section], 'r') as f:
+        with open(source_files[section], 'r') as f:
             content = f.read()
             stripped_content = content.strip()
             sections.append(stripped_content)
 
     else:
         sys.exit(
-            f'\033[91mERROR: "{section}.fountain" was not found in subdirectories of "{sections_dir}"\033[0m')
+            f'\033[91mERROR: A file named "{section}" was not found in subdirectories of "{sections_dir}"\033[0m')
 
 # ------------------------------- Write to out ------------------------------- #
 
@@ -87,4 +87,4 @@ main_doc = "\n\n".join(sections)
 with open(output_path, 'w') as f:
     f.write(main_doc)
     print(
-        f"\033[92mSuccessfully combined {len(fountain_files)} Fountain file(s) to {output_path}\033[0m\n")
+        f"\033[92mSuccessfully combined {len(source_files)} source file(s) to {output_path}\033[0m\n")
