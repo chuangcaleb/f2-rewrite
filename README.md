@@ -25,6 +25,8 @@ It was my first time writing and realizing a movie length story, even if an “a
 
 After discovering [Fountain – A markup language for screenwriting](https://fountain.io/), I needed a story to practice writing with. I also wanted to see the rewrite in screenplay format.
 
+[Go to my storywriting blog for more details!](https://chuangcaleb.github.io/wtsa/Frozen-II-Rewrite)
+
 ## Build Task
 
 ### Motivation
@@ -35,11 +37,15 @@ I use VS Code and [Better Fountain](https://marketplace.visualstudio.com/items?i
 
 ### Design
 
+#### Build Script
+
 The script, [build.py](build.py), simply:
 
 1. Concatenates the content of source files from a specified directory according to a specified order from a configuration list,
 2. Adding sufficient newline characters between them, and then
 3. Saving them to a specified output path
+
+#### Config File
 
 A YAML file should be used to specify the above configurations, for now, like below. Each key is necessary, for now.
 
@@ -51,7 +57,7 @@ source_dir: ./sections/
 structure:
   - title
   - "# ACT 1"
-  - lullabie
+  - lullabies
   - i_wants 
   - proposal
   - sleep 
@@ -82,6 +88,18 @@ structure:
   - resolution
   - postcreds
 ```
+
+Right now, the source file names are just the file names without the extensions. One, since they all should be `.fountain` files, it saves needless repetitive typing. Two, it will technically be filetype/extension-agnostic, meaning you could have a `intro.txt` file in your source directory and the build script will parse and include it just like a `.fountain` file. This is because they are all plain text files anyways.
+
+The build script also searches for all files in all subdirectories of the source directory and treats them all the same regardless of relative directory. This means you can organize your source directory however you want, but you probably will organize it according to Acts like how I have.
+
+The great thing about defining the structure order in a config file is that you can use "Move Line Up/Down" hotkeys to quickly reorder scenes by their identifiers, rather than whole blocks of Fountain code. You can also just comment them out to temporarily remove them (again, rather than commenting out whole blocks of Fountain code).
+
+I've made the Fountain title page as its own source file rather as configuration settings in the config file because it's just more native to Fountain, besides you can preview how it looks like in its own Fountain file.
+
+I also have these `# ACT 1` items in the structure list. The build script will watch for structure items that start with the `#` character, and insert the item as a string rather than parsing it as file name. This is so that structure/timeline markers don't need to be inside and attached to a specific Fountain file's scene. You can see how these render in the output file.
+
+#### VS Code Tasks
 
 VS Code has a feature called [Tasks: Custom Tasks](https://code.visualstudio.com/Docs/editor/tasks#_custom-tasks) where we can define a Custom Task.
 
@@ -126,17 +144,20 @@ In particular, this following segment makes this task the default built task so 
   },
 ```
 
+#### Conclusion
+
+The resulting working directory is very akin to a typical coding language, with a src directory and a compiled output. Your source directory can be organized however you want, and the config file allows you to add, rearrange and comment in/out scenes/sections very lightning-fast and intuitively. It's a deceptively simple system from the world of coding that just is extensible and scalable to your needs.
+
 ### Further Work
 
 1. Accept other config file types besides YAML, like JSON or TOML
-    - Perhaps by default, detect any config filetype in the root working directory, regardless of name, so you could implicitly use "settings.json"
+    - Perhaps by default, detect any config filetype in the root working directory, regardless of name, so you could implicitly use `settings.json`
 2. Default configuration in the absence of a config file
-3. Create multiple output files according to groups of source files, e.g. an output file for each Act, like "Act1.fountain" if the source files are organized like "source/Act1/hook.fountain" and "source/Act1/inciting.fountain".
+3. Create multiple output files according to groups of source files, e.g. an output file for each Act, like `Act1.fountain` if the source files are organized like `source/Act1/hook.fountain` and`source/Act1/inciting.fountain`.
     - Better configuration key-value structure for explicitly defined groups of source files (probably using lists of lists, but the challenge is intuitively differentiating actual files from group names)
 4. Automatic Screenplay to PDF generation or whatever other BetterFountain command, according to post-build tasks specified in the configuration file.
 5. Section/Act headers/comments, configured in the config file(?).
 6. Perhaps re-code it in a faster language, like Go. But I don't know Go.
+7. Only scan for plain text formats in the source directory, in case people use other Markdown-based tools with a working directory at the source directory.
 
----
-
-[Go to my storywriting blog for more details!](https://chuangcaleb.github.io/wtsa/Frozen-II-Rewrite)
+Please open a pull request or an issue if you would like to make improvements!
