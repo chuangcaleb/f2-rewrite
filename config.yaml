@@ -1,0 +1,35 @@
+output_path: ./out/F2Rewrite-Screenplay.fountain
+sections_dir: ./sections/
+structure:
+  - title
+  - "# ACT 1"
+  - lullabies # Arendellian Lullaby & All is Found
+  - i_wants # Some Things Never Change
+  - proposal # Get This Right
+  - sleep # All Is Found (Reprise)
+  - answer # Into the Unknown
+  - recovery
+  - "# ACT 2A"
+  - door
+  - forest
+  - olaf # When I'm Older
+  - encounter
+  - campfire
+  - giants
+  - scarf
+  - shipwreck # I Seek The Truth
+  - "# ACT 2B"
+  - river # When I'm Older (Reprise)
+  - reindeer # Reindeer Danger
+  - taming
+  - ahtohallan # Show Yourself
+  - drowning
+  - death # The Next Right Thing
+  - "# ACT 3"
+  - death
+  - dawn
+  - destruction
+  - rebirth
+  - reunion
+  - resolution
+  - postcreds
