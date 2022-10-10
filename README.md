@@ -25,6 +25,12 @@ It was my first time writing and realizing a movie length story, even if an “a
 
 After discovering [Fountain – A markup language for screenwriting](https://fountain.io/), I needed a story to practice writing with. I also wanted to see the rewrite in screenplay format.
 
+## Build Task
+
+The one Fountain file we work on is very very long, and navigating to specific scenes/sections is quite awkward and clumsy, slowly scrolling until we reach the target. It's just the way Fountain itself works.
+
+I use VS Code and [Better Fountain](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain) as my writing tools. Because of VS Code's versatile features, I have come up with a custom Build Task script that combines (I wouldn't say compile, per se) individual files from a source directory, organized by the principle of separation of responsibilities, into one output file. This repository is a sample showcase of this custom build script.
+
 ---
 
 [Go to my storywriting blog for more details!](https://chuangcaleb.github.io/wtsa/Frozen-II-Rewrite)
