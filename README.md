@@ -160,5 +160,6 @@ The resulting working directory is very akin to a typical coding language, with 
 6. Section/Act headers/comments, configured in the config file(?).
 7. Perhaps re-code it in a faster language, like Go. But I don't know Go.
 8. Only scan for plain text formats in the source directory, in case people use other Markdown-based tools with a working directory at the source directory.
+9. Custom schema for config
 
 Please open a pull request or an issue if you would like to make improvements!
