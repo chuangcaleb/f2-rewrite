@@ -1,5 +1,5 @@
 output_path: ./out/F2Rewrite-Screenplay.fountain
-sections_dir: ./sections/
+source_dir: ./sections/
 structure:
   - title
   - "# ACT 1"

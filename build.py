@@ -39,7 +39,7 @@ with open(config_path, 'r') as f:
     config = yaml.safe_load(f)
 
 structure_list = load_config(config, "structure")
-sections_dir = load_config(config, "sections_dir")
+sections_dir = load_config(config, "source_dir")
 output_path = load_config(config, "output_path")
 
 # --------------------------- Read the sections dir ------------------------- #
