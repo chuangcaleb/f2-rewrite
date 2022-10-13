@@ -58,15 +58,15 @@ structure:
   - title
   - "# ACT 1"
   - lullabies
-  - i_wants 
+  - i_wants
   - proposal
-  - sleep 
+  - sleep
   - answer
   - recovery
   - "# ACT 2A"
   - door
   - forest
-  - olaf 
+  - olaf
   - encounter
   - campfire
   - giants
