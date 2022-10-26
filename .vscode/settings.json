@@ -50,5 +50,6 @@
     "YANUWA",
     "YUNUWANA",
     "wooooo"
-  ]
+  ],
+  "python.analysis.typeCheckingMode": "basic"
 }
