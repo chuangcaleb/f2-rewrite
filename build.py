@@ -9,7 +9,7 @@ import os
 from typing import Dict
 import yaml
 
-config_path = "config.yaml"
+CONFIG_PATH = "config.yaml"
 
 
 def strip_ext(s):
@@ -21,7 +21,7 @@ def load_config(config: Dict, field: str):
 
     if field not in config:
         sys.exit(
-            f'\033[91mERROR: The "{field}" field was not defined in {config_path}\033[0m')
+            f'\033[91mERROR: The "{field}" field was not defined in {CONFIG_PATH}\033[0m')
 
     value = config[field]
 
@@ -35,7 +35,7 @@ def load_config(config: Dict, field: str):
 # -------------------------------- Load config ------------------------------ #
 
 
-with open(config_path, 'r') as f:
+with open(CONFIG_PATH, 'r') as f:
     config = yaml.safe_load(f)
 
 structure_list = load_config(config, "structure")
